@@ -93,10 +93,13 @@ Your objective is to find interesting patterns that offer insights into your key
 
 ---
 
-### **3.Cleaning & Transformation (**Data Pipeline: Staging → Cleaning → Transformation**  
-)**  
+### **3.Cleaning & Transformation (T)** 
 All transformations performed **within BigQuery** using SQL.
 For details on data cleaning and transformation, refer to [data_cleaning_&_transformation.sql](../Query/data_cleaning_&_transformation.sql)
+
+
+**Data Pipeline: Staging → Cleaning → Transformation**
+
 
 #### **1. Staging Layer**
 - Raw IMDb datasets (`title.akas.tsv.gz`, `title.basics.tsv.gz`, `title.ratings.tsv.gz`, `title.principals.tsv.gz`, `name.basics.tsv.gz`) along with external data(`regionalCode_mapped`,  `languageCode_mapped`) are first loaded into **staging tables** in BigQuery:
@@ -136,4 +139,25 @@ Transformation involves **normalizing data**, enriching it with external tables,
 - Split comma-separated `genres` into a separate table. 
   
 
+
+
+## **Data Modeling & Correlation Analysis with Success Metrics**  
+
+### **1. Schema Design**  
+**Fact Table**: `title_ratings` (Success Metrics)  
+**Dimensions**: Title metadata, genres, cast, regions, and languages.   
+
+---
+
+### **4. Relationships**  
+For detailed query refer to [data_modeling](/Query/data_modeling.sql) 
+- **Star Schema**:  
+  ![Star Schema Diagram](/Images/imdb_modeling.png)  
+  - **Fact Table**: `title_ratings` (success metrics).  
+  - **Dimensions**: Linked via foreign keys to analyze correlations.  
+
+---
+
+### **5. Pre-Joined Tables for Analysis**  
+Materialized views created to simplify correlation analysis in Tableau, for details refer to [prejoined_table](/Query/prejoined_table.sql) 
 
