@@ -1,5 +1,5 @@
 # Analyzing-Data-for-Netflix-Content-Strategy
-## Project Overview  
+# Project Overview  
 
 This project analyzes publicly available data to help Netflix identify emerging trends and strategize its future movie content. The focus is on movies released between **2015 and 2024**, leveraging insights from:  
 
@@ -11,15 +11,15 @@ The goal is to provide actionable insights for Netflix to create data-driven con
 
 
 
-
-## **Business Case**  
-### **Summary**  
+---
+# **Business Case**  
+## **Summary**  
 
 This fictional case about the world’s largest subscription streaming service, **Netflix**, teaches how to use publicly available data and tools to explore data for interesting patterns that help answer important, key questions related to **movie content**.  
 
 After years of providing key insights to Netflix, **Zach Joel** and his team of data analysts have the opportunity to give the streaming service new **movie** recommendations. The evening before Zach and his team begin digging into this challenge, he hopes to get a head start on the analysis by mining publicly available data. What insights could Zach and his team explore?  
 
-### **Key Characters**  
+## **Key Characters**  
 
 - **Netflix**: Subscription-based streaming service that allows members to watch **movies** commercial-free on an internet-connected device.  
 - **Zach Joel**: Manager and lead analyst for a data analytics team that consults with Netflix on various business operations and marketing challenges the global streaming service faces.  
@@ -28,7 +28,7 @@ After years of providing key insights to Netflix, **Zach Joel** and his team of 
 - **IMDb Datasets**: Subsets of IMDb data available for access to customers for personal and non-commercial use with information on millions of **movies**.  
 - **Facebook Audience Insights**: Tool designed to help marketers learn more about their target audiences, including information about geography, demographics, purchase behavior, and more through anonymous and aggregated Facebook data.  
 
-### **What’s the Next Big Thing for Netflix?**  
+## **What’s the Next Big Thing for Netflix?**  
 
 The solution was clear for Zach Joel, even if the answer wasn’t.  
 
@@ -59,3 +59,81 @@ Your objective is to find interesting patterns that offer insights into your key
 
 ---  
 **Source**: Adapted from the [Netflix Case Study](https://artscience.ai/netflix-case-study/), with a focus on **movies** instead of general titles.  
+
+
+---
+# IMDb Movie Analysis: ELT Pipeline & Data Modeling  
+
+## **ELT Process Overview**  
+
+### **1. Extraction (E)**  
+- **Source Data**:  
+  - **IMDb Datasets**: Downloaded from [IMDb Non-Commercial Datasets](https://developer.imdb.com/non-commercial-datasets/).  
+    - `title.akas.tsv.gz`, `title.basics.tsv.gz`, `title.ratings.tsv.gz`, `title.principals.tsv.gz`, `name.basics.tsv.gz`.  
+  - **External Data**:  
+    - ISO Country Codes (mapped to country name/region/subregion).  
+    - Language Codes (mapped to language names).  
+- **Tools**:  
+  - Google Cloud Storage (GCS) for raw data storage.  
+  - BigQuery for ELT workflows.  
+
+---
+
+### **2. Loading (L)**  
+- Raw files uploaded to GCS buckets:  
+  - `gs://<imdb_raw_data>/imdb/title_basics.tsv.gz`  
+  - `gs://<imdb_raw_data>/imdb/title_akas.tsv.gz`
+  - `gs://<imdb_raw_data>/imdb/title.ratings.tsv.gz`
+  - `gs://<imdb_raw_data>/imdb/title.principals.tsv.gz`
+  - `gs://<imdb_raw_data>/imdb/name.basics.tsv.gz`     
+- External tables loaded directly into BigQuery:  
+  - `regional_code_mapped` (country, region, subregion).  
+  - `language_code_mapped` (language code, language name).  
+
+
+---
+
+### **3.Cleaning & Transformation (**Data Pipeline: Staging → Cleaning → Transformation**  
+)**  
+All transformations performed **within BigQuery** using SQL.
+For details on data cleaning and transformation, refer to [data_cleaning_&_transformation.sql](../Query/data_cleaning_&_transformation.sql)
+
+#### **1. Staging Layer**
+- Raw IMDb datasets (`title.akas.tsv.gz`, `title.basics.tsv.gz`, `title.ratings.tsv.gz`, `title.principals.tsv.gz`, `name.basics.tsv.gz`) along with external data(`regionalCode_mapped`,  `languageCode_mapped`) are first loaded into **staging tables** in BigQuery:
+  - `staging_imdb_data.raw_title_basics`
+  - `staging_imdb_data.raw_title_akas`
+  - `staging_imdb_data.raw_title_ratings`
+  - `staging_imdb_data.raw_title_principals`
+  - `staging_imdb_data.raw_name_basics`
+  - `staging_imdb_data.regional_code_mapped`
+  - `staging_imdb_data.language_code_mapped`
+
+
+    
+---
+
+#### **2. Cleaning Steps (via BigQuery Views)** 
+Views are created in the `cleaned_imdb_data` dataset to clean and transform raw staging tables:  
+
+##### **A. Handling Missing Values**  
+- Replace `\N` with `NULL` or descriptive placeholders (e.g., `'Unspecified'` for `genres`, `region`, `language`).    
+
+##### **B. Typecasting Columns**  
+- Convert columns to appropriate data types:  
+  - `isAdult` → `BOOL`  
+  - `averageRating` → `FLOAT64`  
+  - `numVotes`, `runtimeMinutes`, `startYear` → `INT64`.  
+
+##### **C. Data Validation**  
+- **Deduplication**:  
+  ```sql
+  -- Checked for duplicate records in each table.
+
+#### **3. Data Transformation Step**  
+Transformation involves **normalizing data**, enriching it with external tables, and preparing for analysis.  
+
+##### **A. Genre Normalization**  
+- Split comma-separated `genres` into a separate table. 
+  
+
+
