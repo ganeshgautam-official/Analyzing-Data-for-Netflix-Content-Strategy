@@ -1,4 +1,3 @@
-# Analyzing-Data-for-Netflix-Content-Strategy
 # Project Overview  
 
 This project analyzes publicly available data to help Netflix identify emerging trends and strategize its future movie content. The focus is on movies released between **2015 and 2024**, leveraging insights from:  
@@ -11,7 +10,7 @@ The goal is to provide actionable insights for Netflix to create data-driven con
 
 
 
----
+
 # **Business Case**  
 ## **Summary**  
 
@@ -61,7 +60,6 @@ Your objective is to find interesting patterns that offer insights into your key
 **Source**: Adapted from the [Netflix Case Study](https://artscience.ai/netflix-case-study/), with a focus on **movies** instead of general titles.  
 
 
----
 # IMDb Movie Analysis: ELT Pipeline & Data Modeling  
 
 ## **ELT Process Overview**  
@@ -111,10 +109,6 @@ For details on data cleaning and transformation, refer to [data_cleaning_&_trans
   - `staging_imdb_data.regional_code_mapped`
   - `staging_imdb_data.language_code_mapped`
 
-
-    
----
-
 #### **2. Cleaning Steps (via BigQuery Views)** 
 Views are created in the `cleaned_imdb_data` dataset to clean and transform raw staging tables:  
 
@@ -138,8 +132,6 @@ Transformation involves **normalizing data**, enriching it with external tables,
 ##### **A. Genre Normalization**  
 - Split comma-separated `genres` into a separate table. 
   
-
-
 
 ## **Data Modeling & Correlation Analysis with Success Metrics**  
 
