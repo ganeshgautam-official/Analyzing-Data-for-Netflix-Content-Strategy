@@ -133,7 +133,7 @@ Transformation involves **normalizing data**, enriching it with external tables,
 - Split comma-separated `genres` into a separate table. 
   
 
-## **Data Modeling & Correlation Analysis with Success Metrics**  
+## **Data Modeling**  
 
 ### **1. Schema Design**  
 **Fact Table**: `title_ratings` (Success Metrics)  
@@ -141,7 +141,7 @@ Transformation involves **normalizing data**, enriching it with external tables,
 
 ---
 
-### **4. Relationships**  
+### **2. Relationships**  
 For detailed query refer to [data_modeling](/Query/data_modeling.sql) 
 - **Star Schema**:  
   ![Star Schema Diagram](/Images/imdb_modeling.png)  
@@ -150,6 +150,102 @@ For detailed query refer to [data_modeling](/Query/data_modeling.sql)
 
 ---
 
-### **5. Pre-Joined Tables for Analysis**  
+### **3. Pre-Joined Tables for Analysis**  
 Materialized views created to simplify correlation analysis in Tableau, for details refer to [prejoined_table](/Query/prejoined_table.sql) 
+
+
+
+# IMDb Historical Analysis   
+**Tableau Public Dashboard:** [IMDb Historical Analysis](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-) 
+
+---
+
+## **1. Data Exploration & Key Findings**  
+### **Genre Popularity & Volume**  
+- **Visual**: Bar chart (Genre vs. Volume) with color encoding for average popularity (votes)
+    
+- **Key Insights**:  
+  - **Drama** (29.5K titles) and **Comedy** dominate in volume but have moderate popularity.  
+  - **Action**, **Adventure**, and **Sci-Fi** genres have **significantly higher average votes** despite fewer titles (e.g., Sci-Fi: 5K titles vs. Drama: 29.5K).  
+  - **Focus Genres**: Action, Adventure, Sci-Fi (critical for success correlation analysis).  
+  - **Screenshot Reference**: `Screenshot 2025-02-28 091954.png`.  
+
+---
+
+### **Runtime Impact on Popularity**  
+- **Calculated Field**: Runtime categorized into:  
+  - **Epic (141+ mins)**: Highest popularity (e.g., Adventure: 62.6K votes).  
+  - **Extended (101-140 mins)**: 34% of total volume, high popularity (e.g., Sci-Fi: 63.8K votes).  
+  - **Standard (61-100 mins)**: Highest volume (40%) but lower popularity.  
+  - **Short (0-60 mins)**: Minimal volume and popularity (0.1K votes).  
+- **Screenshot Reference**: `Screenshot 2025-02-28 092011.png`.  
+
+---
+
+## **2. Correlation Analysis**  
+### **Director Influence**  
+- **Top Directors**:  
+  - **Russo Brothers** (Joe & Anthony): 3.7M votes each, avg. rating 7.78.  
+  - **Denis Villeneuve**: 3.5M votes, highest avg. rating (8.02).  
+  - **Jon Watts**, **Guy Ritchie**, and **Zack Snyder** also critical for Action/Sci-Fi success.  
+- **Screenshot Reference**: All regional popularity screenshots (e.g., `Screenshot 2025-02-28 093715.png`).  
+
+---
+
+### **Regional Popularity & Target Markets**  
+- **Visual**: Heatmaps (green = high popularity, red = low) + bar charts for countries/languages.  
+- **Global Trends**:  
+  - **Top Countries**: USA (290M votes), UK (289.2M), Canada (281.1M).  
+  - **Dominant Languages**: English (288.9M), Japanese (265.2M), French (258.1M).  
+
+#### **Subregion Breakdown**  
+| Region               | Top 3 Countries                          | Dominant Language(s)               |  
+|----------------------|------------------------------------------|------------------------------------|  
+| **Northern Europe**  | United Kingdom, Sweden, Lithuania       | English (177.3M)                  |  
+| **Oceania**          | Australia, New Zealand, Tonga           | English (166M), Maori (11.6M)     |  
+| **South America**    | Brazil, Argentina, Ecuador              | Spanish (258.5M), Portuguese (5.6M)|  
+| **South-eastern Asia**| Singapore, Philippines, Viet Nam        | English (242.5M)                  |  
+| **Southern Asia**    | India, Iran, Bangladesh                 | Hindi (248.6M), English (268.1M)  |  
+| **Southern Europe**  | Italy, Spain, Portugal                  | Catalan (56.9M)                   |  
+| **Western Asia**     | Türkiye, Israel, United Arab Emirates   | Turkish (236.3M), Hebrew (168.8M)|  
+| **Africa**           | South Africa, Egypt, Algeria            | English (226.6M)                  |  
+
+- **Screenshot References**:  
+  - `Screenshot 2025-02-28 094057.png` (Northern Europe)  
+  - `Screenshot 2025-02-28 094112.png` (Oceania)  
+  - `Screenshot 2025-02-28 094127.png` (South America)  
+  - `Screenshot 2025-02-28 094145.png` (South-eastern Asia)  
+  - `Screenshot 2025-02-28 094159.png` (Southern Asia)  
+  - `Screenshot 2025-02-28 094211.png` (Southern Europe)  
+  - `Screenshot 2025-02-28 094224.png` (Western Asia)  
+
+---
+
+## **3. Success Metrics & Recommendations**  
+### **Common Success Factors**  
+1. **Genre Focus**: Prioritize **Action, Adventure, Sci-Fi** with **Extended/Epic runtimes**.  
+2. **Director Partnerships**: Leverage top directors (Russo Brothers, Villeneuve).  
+3. **Regional Localization**:  
+   - **English**: Critical in North America, Oceania, Africa.  
+   - **Japanese**: Key for Eastern Asia.  
+   - **Spanish**: Vital for South America.  
+
+#### **Filters Applied**  
+- Movies with **minimum rating of 6** to isolate success factors.  
+
+---
+
+## **4. Dashboard Navigation**  
+1. **Genre-Runtime Correlation**: Toggle between popularity and volume views.  
+2. **Director Analysis**: Filter by role (director/actor) and region.  
+3. **Regional Drill-Downs**: Click maps to explore subregions.  
+
+**Explore the dashboard here**: [IMDb Historical Analysis](https://public.tableau.com/) *(link to be updated by user)*.  
+
+--- 
+
+## **Next Steps**  
+- Refine actor/director correlations.  
+- Analyze budget/revenue metrics if data becomes available.  
+- Validate data typos (e.g., "Trukey" → Türkiye, "Spain Arabia" → Saudi Arabia).  
 
