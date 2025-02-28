@@ -168,7 +168,7 @@ Materialized views were created to simplify correlation analysis in Tableau, for
   - **Drama** (24.9K titles) and **Comedy** dominate in volume but have moderate popularity.  
   - **Action**, **Adventure**, and **Sci-Fi** genres have **significantly higher average votes** despite fewer titles.
   - **Focus Genres**: Action, Adventure, Sci-Fi (critical for success correlation analysis).
-- Further analysis focuses on identifying the success factors that contribute to the very high popularity of Action, Adventure, and Science Fiction genres.
+- Further analysis focuses on identifying the success factors contributing to the high popularity of the Action, Adventure, and Science Fiction genres.
     
 ---
 
@@ -186,6 +186,7 @@ Materialized views were created to simplify correlation analysis in Tableau, for
 ## **2. Correlation Analysis**  
 ### **Director Influence**  
 - **Top 10 Popular Directors**:
+  
   ![Director Popularity](/Images/imdb/top_director.png)  
 - To explore other cast members, refer to [IMDb Historical Analysis](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-)
 ---
@@ -217,6 +218,7 @@ Materialized views were created to simplify correlation analysis in Tableau, for
 | **Eastern Europe**   | Russia, Poland, Ukraine                 | Bulgarian (194M)                    |
 | **North America**    | USA, Canada, Mexico                     | English (279.2M)                    |
 | **Western Europe**   | Germany, France, Netherland             | French (29M), English(22.7)         |
+
 To explore the popularity of all countries and languages, refer to [IMDb Historical Analysis](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-)
 
 ---
@@ -230,16 +232,60 @@ To explore the popularity of all countries and languages, refer to [IMDb Histori
    - **Japanese**: Key for Eastern Asia.  
    - **Spanish**: Vital for South America.  
 
-#### **Filters Applied**  
-- Movies with **minimum rating of 6** to isolate success factors.  
+**Explore the dashboard here**: [IMDb Historical Analysis](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-).  
+
+
+# Facebook Audience Insights Documentation  
+**Tableau Dashboard:** [Facebook Potential Audience Analysis](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-)  
 
 ---
 
-## **4. Dashboard Navigation**  
-1. **Genre-Runtime Correlation**: Toggle between popularity and volume views.  
-2. **Director Analysis**: Filter by role (director/actor) and region.  
-3. **Regional Drill-Downs**: Click maps to explore subregions.  
+## **1. Overview**  
+### **Estimated Audience**  
+- **Total Audience**: 420.2M - 494.1M users interested in **Action, Adventure, Sci-Fi** genres.  
+- **Filters**: Global users aged 18+ with demonstrated interest in IMDb’s top genres.  
 
-**Explore the dashboard here**: [IMDb Historical Analysis](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-) *(link to be updated by user)*.  
+---
 
+## **2. Demographic Breakdown**  
+### **Age & Gender Distribution**  
+| Age Group | Male (%) | Female (%) |  
+|-----------|----------|------------|  
+| 18-24     | 6%      | 3%        |  
+| 25-34     | 16%      | 10%        |  
+| 35-44     | 15%      | 11%        |  
+| 45-54     | 9%       | 8%         |  
+| 55+       | 10%       | 11%         |  
 
+**Key Insight**:  
+- **Prime Audience**: Males aged 25-34 dominate (38%), followed by females aged 25-34 (30%).  
+
+---
+
+## **3. Geographic Insights**  
+### **Top 5 Cities**  
+1. **New York City, USA** (12.5M)  
+2. **London, UK** (9.8M)  
+3. **Mumbai, India** (8.7M)  
+4. **São Paulo, Brazil** (7.2M)  
+5. **Tokyo, Japan** (6.9M)  
+
+### **Top 5 Countries**  
+1. **United States** (68M)  
+2. **India** (45M)  
+3. **United Kingdom** (32M)  
+4. **Brazil** (28M)  
+5. **Japan** (25M)  
+
+---
+
+## **4. Subregion Analysis**  
+The dashboard segments data into **12 subregions** (e.g., North America, South Asia, Western Europe). Below is a generalized template for subregion reporting:  
+
+### **Subregion Template**  
+```markdown
+#### **<Region Name>**  
+- **Estimated Audience**: <X>M–<Y>M  
+- **Top Demographic**: <Age/Gender> (e.g., "Males 25-34, 40%")  
+- **Top City**: <City> (<Audience Size>)  
+- **Top Country**: <Country> (<Audience Size>)  
