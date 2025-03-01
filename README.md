@@ -235,57 +235,47 @@ To explore the popularity of all countries and languages, refer to [IMDb Histori
 **Explore the dashboard here**: [IMDb Historical Analysis](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-).  
 
 
-# Facebook Audience Insights Documentation  
-**Tableau Dashboard:** [Facebook Potential Audience Analysis](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-)  
+
+# Facebook Audience Insights for Action, Adventure, and Science Fiction Interest
+
+## Demographical Audience Distribution by Region and Age Group
+
+| Region              | 18-24            | 25-34            | 35-44            | 45-54            | 55-64            | 65+              |
+|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|
+|                     | Men      Women   | Men      Women   | Men      Women   | Men      Women   | Men      Women   | Men      Women   |
+|---------------------|----------|--------|----------|--------|----------|--------|----------|--------|----------|--------|----------|--------|
+| Africa              | 10.4     8.4     | 18.7    14.4    | 15.3    10.8    | 7.2      4.6     | 3.5      2.5     | 2.3      1.9     |
+| Southern Asia       | 19.1     4.4     | 34.8    7.2     | 18.2    4.1     | 5.6      1.6     | 2.4      0.8     | 1.3      0.5     |
+| Western Europe      | 1.7      1.0     | 14.1    8.6     | 15.8    12.0    | 10.3     9.6     | 6.8      8.5     | 4.7      6.9     |
+| Southern Europe     | 1.3      0.9     | 9.5     6.7     | 12.2    10.1    | 11.9     12.1    | 8.1      11.2    | 6.7      9.3     |
+| Oceania             | 3.2      2.0     | 13.5    9.1     | 13.5    12.0    | 8.0      8.9     | 5.9      8.1     | 6.1      9.7     |
+| South-eastern Asia  | 9.4      6.9     | 20.5    15.6    | 14.3    11.9    | 6.4      6.2     | 2.6      3.1     | 1.4      1.7     |
+| Northern Europe     | 1.6      1.3     | 11.1    9.1     | 12.7    12.6    | 8.8      10.0    | 7.0      10.0    | 6.1      9.7     |
+| Eastern Europe      | 2.0      2.1     | 8.9     9.3     | 13.8    13.3    | 13.4     10.8    | 9.6      5.8     | 7.4      3.6     |
+| Eastern Asia        | 7.0      3.8     | 18.5    9.8     | 14.2    10.3    | 10.7     7.5     | 7.5      4.2     | 4.4      2.1     |
+| Central Asia        | 5.5      3.3     | 13.8    10.0    | 18.4    14.3    | 10.0     9.3     | 4.5      5.9     | 1.9      3.1     |
+| Western Asia        | 7.0      1.7     | 23.8    7.1     | 22.5    8.6     | 12.3     4.9     | 5.3      2.7     | 2.5      1.6     |
+| North America       | 4.1      4.7     | 11.6    11.9    | 12.0    11.1    | 9.9      8.1     | 8.2      5.6     | 8.2      4.6     |
+| South America       | 5.3      4.5     | 13.7    12.2    | 12.2    12.9    | 7.6      9.9     | 4.6      7.7     | 3.3      6.1     |
+| **Average**         | **5.7    3.6**  | **16.7  10.1** | **14.9  11.2** | **8.9    7.9**  | **5.6    6.3**  | **4.0    4.7**  |
 
 ---
 
-## **1. Overview**  
-### **Estimated Audience**  
-- **Total Audience**: 420.2M - 494.1M users interested in **Action, Adventure, Sci-Fi** genres.  
-- **Filters**: Global users aged 18+ with demonstrated interest in IMDb’s top genres.  
+### Key Observations:
+1. **Highest Male Interest**:  
+   - **Southern Asia (Men 25-34)** has the highest male audience percentage at **34.8%**.  
+   - **Western Asia (Men 25-34)** follows closely with **23.8%**.  
 
----
+2. **Highest Female Interest**:  
+   - **Southern Europe (Women 55-64)** has the highest female audience percentage at **11.2%**.  
+   - **Northern Europe (Women 55-64 and 65+)** shows strong engagement at **10.0%** and **9.7%**, respectively.  
 
-## **2. Demographic Breakdown**  
-### **Age & Gender Distribution**  
-| Age Group | Male (%) | Female (%) |  
-|-----------|----------|------------|  
-| 18-24     | 6%      | 3%        |  
-| 25-34     | 16%      | 10%        |  
-| 35-44     | 15%      | 11%        |  
-| 45-54     | 9%       | 8%         |  
-| 55+       | 10%       | 11%         |  
+3. **Gender Disparity**:  
+   - Male audiences dominate in younger age groups (18-44) across most regions, especially in **Southern Asia** and **Western Asia**.  
+   - Female audiences are more prominent in older age groups (45+) in **Southern Europe**, **Northern Europe**, and **Oceania**.  
 
-**Key Insight**:  
-- **Prime Audience**: Males aged 25-34 dominate (38%), followed by females aged 25-34 (30%).  
+4. **Regional Trends**:  
+   - **Western Europe** and **Northern Europe** have balanced gender distributions in older age brackets (55+).  
+   - **Africa** and **Southern Asia** show significantly lower female engagement overall.  
 
----
-
-## **3. Geographic Insights**  
-### **Top 5 Cities**  
-1. **New York City, USA** (12.5M)  
-2. **London, UK** (9.8M)  
-3. **Mumbai, India** (8.7M)  
-4. **São Paulo, Brazil** (7.2M)  
-5. **Tokyo, Japan** (6.9M)  
-
-### **Top 5 Countries**  
-1. **United States** (68M)  
-2. **India** (45M)  
-3. **United Kingdom** (32M)  
-4. **Brazil** (28M)  
-5. **Japan** (25M)  
-
----
-
-## **4. Subregion Analysis**  
-The dashboard segments data into **12 subregions** (e.g., North America, South Asia, Western Europe). Below is a generalized template for subregion reporting:  
-
-### **Subregion Template**  
-```markdown
-#### **<Region Name>**  
-- **Estimated Audience**: <X>M–<Y>M  
-- **Top Demographic**: <Age/Gender> (e.g., "Males 25-34, 40%")  
-- **Top City**: <City> (<Audience Size>)  
-- **Top Country**: <Country> (<Audience Size>)  
+Use this data to tailor marketing strategies by targeting high-engagement demographics (e.g., Men aged 25-34 in Southern/Western Asia) and addressing gaps in underrepresented groups (e.g., Women in Africa/Southern Asia).  
