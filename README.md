@@ -62,9 +62,9 @@ Your objective is to find interesting patterns that offer insights into your key
 
 # IMDb Movie Analysis: ELT Pipeline & Data Modeling  
 
-## **ELT Process Overview**  
+## **1. ELT Process Overview**  
 
-### **1. Extraction (E)**  
+### **1.1 Extraction (E)**  
 - **Source Data**:  
   - **IMDb Datasets**: Downloaded from [IMDb Non-Commercial Datasets](https://developer.imdb.com/non-commercial-datasets/).  
     - `title.akas.tsv.gz`, `title.basics.tsv.gz`, `title.ratings.tsv.gz`, `title.principals.tsv.gz`, `name.basics.tsv.gz`.  
@@ -77,7 +77,7 @@ Your objective is to find interesting patterns that offer insights into your key
 
 ---
 
-### **2. Loading (L)**  
+### **1.2 Loading (L)**  
 - Raw files uploaded to GCS buckets:  
   - `gs://<imdb_raw_data>/imdb/title_basics.tsv.gz`  
   - `gs://<imdb_raw_data>/imdb/title_akas.tsv.gz`
@@ -91,7 +91,7 @@ Your objective is to find interesting patterns that offer insights into your key
 
 ---
 
-### **3.Cleaning & Transformation (T)** 
+### **1.3 Cleaning & Transformation (T)** 
 All transformations performed **within BigQuery** using SQL.
 For details on data cleaning and transformation, refer to [data_cleaning_&_transformation.sql](../Query/data_cleaning_&_transformation.sql)
 
@@ -99,7 +99,7 @@ For details on data cleaning and transformation, refer to [data_cleaning_&_trans
 **Data Pipeline: Staging → Cleaning → Transformation**
 
 
-#### **1. Staging Layer**
+#### **1.3.1 Staging Layer**
 - Raw IMDb datasets (`title.akas.tsv.gz`, `title.basics.tsv.gz`, `title.ratings.tsv.gz`, `title.principals.tsv.gz`, `name.basics.tsv.gz`) along with external data(`regionalCode_mapped`,  `languageCode_mapped`) are first loaded into **staging tables** in BigQuery:
   - `staging_imdb_data.raw_title_basics`
   - `staging_imdb_data.raw_title_akas`
@@ -109,7 +109,7 @@ For details on data cleaning and transformation, refer to [data_cleaning_&_trans
   - `staging_imdb_data.regional_code_mapped`
   - `staging_imdb_data.language_code_mapped`
 
-#### **2. Cleaning Steps (via BigQuery Views)** 
+#### **1.3.2 Cleaning Steps (via BigQuery Views)** 
 Views are created in the `cleaned_imdb_data` dataset to clean and transform raw staging tables:  
 
 ##### **A. Handling Missing Values**  
@@ -126,22 +126,22 @@ Views are created in the `cleaned_imdb_data` dataset to clean and transform raw 
   ```sql
   -- Checked for duplicate records in each table.
 
-#### **3. Data Transformation Step**  
+#### **1.3.3 Data Transformation Step**  
 Transformation involves **normalizing data**, enriching it with external tables, and preparing for analysis.  
 
 ##### **A. Genre Normalization**  
 - Split comma-separated `genres` into a separate table. 
   
 
-## **Data Modeling**  
+## **2. Data Modeling**  
 
-### **1. Schema Design**  
+### **2.1 Schema Design**  
 **Fact Table**: `title_ratings` (Success Metrics)  
 **Dimensions**: Title metadata, genres, cast, regions, and languages.   
 
 ---
 
-### **2. Relationships**  
+### **2.2 Relationships**  
 For detailed query refer to [data_modeling](/Query/data_modeling.sql) 
 - **Star Schema**:  
   ![Star Schema Diagram](/Images/imdb_modeling.png)  
@@ -150,17 +150,17 @@ For detailed query refer to [data_modeling](/Query/data_modeling.sql)
 
 ---
 
-### **3. Pre-Joined Tables for Analysis**  
+### **2.3 Pre-Joined Tables for Analysis**  
 Materialized views were created to simplify correlation analysis in Tableau, for details refer to [prejoined_table](/Query/prejoined_table.sql) 
 
 
 
-# IMDb Historical Analysis   
+# 3. IMDb Historical Analysis   
 **Tableau Public Dashboard:** [IMDb Historical Analysis](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-) 
 
 ---
 
-## **1. Data Exploration & Key Findings**  
+## **3.1 Data Exploration & Key Findings**  
 ### **Genre Popularity & Volume**  
 - **Visual**: Bar chart (Genre vs. Volume) with color encoding for average popularity (votes)
     ![Genre Popularity](/Images/imdb/genre_popularity.png)
@@ -183,7 +183,7 @@ Materialized views were created to simplify correlation analysis in Tableau, for
 
 ---
 
-## **2. Correlation Analysis**  
+## **3.2 Correlation Analysis**  
 ### **Director Influence**  
 - **Top 10 Popular Directors**:
   
@@ -223,11 +223,11 @@ To explore the popularity of all countries and languages, refer to [IMDb Histori
 
 ---
 
-## **3. Success Metrics & Recommendations**  
+## **3.3 Success Metrics & Recommendations**  
 ### **Common Success Factors**  
-1. **Genre Focus**: Prioritize **Action, Adventure, Sci-Fi** with **Extended/Epic runtimes**.  
-2. **Director Partnerships**: Leverage top directors (Russo Brothers, Villeneuve).  
-3. **Regional Localization**:  
+- **Genre Focus**: Prioritize **Action, Adventure, Sci-Fi** with **Extended/Epic runtimes**.  
+- **Director Partnerships**: Leverage top directors (Russo Brothers, Villeneuve).  
+- **Regional Localization**:  
    - **English**: Critical in North America, Oceania, and Africa.  
    - **Japanese**: Key for Eastern Asia.  
    - **Spanish**: Vital for South America.  
@@ -236,49 +236,224 @@ To explore the popularity of all countries and languages, refer to [IMDb Histori
 
 
 
-# Facebook Audience Insights for Action, Adventure, and Science Fiction Interest
+# 4. Potential Audience by Demographics and Region
+Explore the [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-) for detailed visualization of potential consumer audiences. Navigate to the Audience section to analyze regional and demographic insights.
 
-# Facebook Audience Insights for Action, Adventure, and Science Fiction Interest
+## **Demographic Analysis (Age & Gender)**
 
-## Demographical Audience Distribution by Region and Age Group (Men vs. Women)
+### **Audience Distribution by Region and Age Group (Men vs. Women)**
 
-| Region              | 18-24            | 25-34            | 35-44            | 45-54            | 55-64            | 65+              |
+| Region              | 18-24 (M/W)       | 25-34 (M/W)       | 35-44 (M/W)       | 45-54 (M/W)       | 55-64 (M/W)       | 65+ (M/W)         |
 |---------------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
-|                     | **Men** | **Women** | **Men** | **Women** | **Men** | **Women** | **Men** | **Women** | **Men** | **Women** | **Men** | **Women** |
-|---------------------|---------|-----------|---------|-----------|---------|-----------|---------|-----------|---------|-----------|---------|-----------|
-| Africa              | 10.4    | 8.4       | 18.7    | 14.4      | 15.3    | 10.8      | 7.2     | 4.6       | 3.5     | 2.5       | 2.3     | 1.9       |
-| Southern Asia       | 19.1    | 4.4       | 34.8    | 7.2       | 18.2    | 4.1       | 5.6     | 1.6       | 2.4     | 0.8       | 1.3     | 0.5       |
-| Western Europe      | 1.7     | 1.0       | 14.1    | 8.6       | 15.8    | 12.0      | 10.3    | 9.6       | 6.8     | 8.5       | 4.7     | 6.9       |
-| Southern Europe     | 1.3     | 0.9       | 9.5     | 6.7       | 12.2    | 10.1      | 11.9    | 12.1      | 8.1     | 11.2      | 6.7     | 9.3       |
-| Oceania             | 3.2     | 2.0       | 13.5    | 9.1       | 13.5    | 12.0      | 8.0     | 8.9       | 5.9     | 8.1       | 6.1     | 9.7       |
-| South-eastern Asia  | 9.4     | 6.9       | 20.5    | 15.6      | 14.3    | 11.9      | 6.4     | 6.2       | 2.6     | 3.1       | 1.4     | 1.7       |
-| Northern Europe     | 1.6     | 1.3       | 11.1    | 9.1       | 12.7    | 12.6      | 8.8     | 10.0      | 7.0     | 10.0      | 6.1     | 9.7       |
-| Eastern Europe      | 2.0     | 2.1       | 8.9     | 9.3       | 13.8    | 13.3      | 13.4    | 10.8      | 9.6     | 5.8       | 7.4     | 3.6       |
-| Eastern Asia        | 7.0     | 3.8       | 18.5    | 9.8       | 14.2    | 10.3      | 10.7    | 7.5       | 7.5     | 4.2       | 4.4     | 2.1       |
-| Central Asia        | 5.5     | 3.3       | 13.8    | 10.0      | 18.4    | 14.3      | 10.0    | 9.3       | 4.5     | 5.9       | 1.9     | 3.1       |
-| Western Asia        | 7.0     | 1.7       | 23.8    | 7.1       | 22.5    | 8.6       | 12.3    | 4.9       | 5.3     | 2.7       | 2.5     | 1.6       |
-| North America       | 4.1     | 4.7       | 11.6    | 11.9      | 12.0    | 11.1      | 9.9     | 8.1       | 8.2     | 5.6       | 8.2     | 4.6       |
-| South America       | 5.3     | 4.5       | 13.7    | 12.2      | 12.2    | 12.9      | 7.6     | 9.9       | 4.6     | 7.7       | 3.3     | 6.1       |
-| **Average**         | **5.7** | **3.6**  | **16.7**| **10.1** | **14.9**| **11.2** | **8.9** | **7.9**  | **5.6** | **6.3**  | **4.0** | **4.7**  |
+| **Africa**          | 10.4% / 8.4%      | **🔑 18.7%** /14.4% | 15.3% /10.8%      | 7.2% /4.6%        | 3.5% /2.5%        | 2.3% /1.9%        |
+| **Southern Asia**   | 19.1% /4.4%       | **🔑 34.8%** /7.2%  | 18.2% /4.1%       | 5.6% /1.6%        | 2.4% /0.8%        | 1.3% /0.5%        |
+| **Western Europe**  | 1.7% /1.0%        | 14.1% /8.6%       | 15.8% /12.0%      | 10.3% /9.6%       | 6.8% /8.5%        | 4.7% /6.9%        |
+| **Southern Europe** | 1.3% /0.9%        | 9.5% /6.7%        | 12.2% /10.1%      | 11.9% /12.1%      | **🔑 8.1% /11.2%** | 6.7% /9.3%        |
+| **Oceania**         | 3.2% /2.0%        | 13.5% /9.1%       | 13.5% /12.0%      | 8.0% /8.9%        | 5.9% /8.1%        | **🔑 6.1% /9.7%** |
+| **SE Asia**         | 9.4% /6.9%        | 20.5% /15.6%      | 14.3% /11.9%      | 6.4% /6.2%        | 2.6% /3.1%        | 1.4% /1.7%        |
+| **Northern Europe** | 1.6% /1.3%        | 11.1% /9.1%       | 12.7% /12.6%      | 8.8% /10.0%       | **🔑 7.0% /10.0%** | 6.1% /9.7%        |
+| **Eastern Europe**  | 2.0% /2.1%        | 8.9% /9.3%        | 13.8% /13.3%      | 13.4% /10.8%      | 9.6% /5.8%        | 7.4% /3.6%        |
+| **Eastern Asia**    | 7.0% /3.8%        | 18.5% /9.8%       | 14.2% /10.3%      | 10.7% /7.5%       | 7.5% /4.2%        | 4.4% /2.1%        |
+| **Central Asia**    | 5.5% /3.3%        | 13.8% /10.0%      | 18.4% /14.3%      | 10.0% /9.3%       | 4.5% /5.9%        | 1.9% /3.1%        |
+| **Western Asia**    | 7.0% /1.7%        | **🔑 23.8%** /7.1%  | 22.5% /8.6%       | 12.3% /4.9%       | 5.3% /2.7%        | 2.5% /1.6%        |
+| **North America**   | 4.1% /4.7%        | 11.6% /11.9%      | 12.0% /11.1%      | 9.9% /8.1%        | 8.2% /5.6%        | 8.2% /4.6%        |
+| **South America**   | 5.3% /4.5%        | 13.7% /12.2%      | 12.2% /12.9%      | 7.6% /9.9%        | 4.6% /7.7%        | 3.3% /6.1%        |
+
+---
+
+### **Key Insights (Demographics):**
+1. **Key Age Group**: **Men 25-34** dominate in:  
+   - **Southern Asia (34.8%)** – Highest engagement globally.  
+   - **Western Asia (23.8%)** – Strong interest in Turkey/UAE.  
+   - **Africa (18.7%)** – Significant interest in younger males.  
+2. **Key Gender**: **Women 55+** show peak engagement in:  
+   - **Southern Europe (11.2%)** – Highest female engagement.  
+   - **Northern Europe (10.0%)** – Strong interest in older women.  
+   - **Oceania (9.7%)** – Notable interest among older females.  
+
+---
+
+## **Geographic Analysis (Cities & Countries)**
+
+### **Top Cities by Region**
+
+| Region              | Top Cities (Percentage)                                                                 |
+|---------------------|----------------------------------------------------------------------------------------|
+| **Central Asia**    | Tashkent, Uzbekistan (21.66%), Almaty, Kazakhstan (13.74%), Astana, Kazakhstan (7.8%)  |
+| **Eastern Asia**    | **🔑 Seoul, Korea (24.78%)**, Yokohama (6.04%), Busan, South Korea (4.4%)              |
+| **Eastern Europe**  | Odessa, Ukraine (4.18%), Zaporizhia (3.86%), Bucharest, Romania (3.77%)               |
+| **Northern Europe** | **🔑 London, United Kingdom (6.13%)**, Sheffield (1.55%), Birmingham, United Kingdom (1.42%) |
+| **South America**   | Bogotá, Colombia (5.57%), Lima, Peru (5.12%), Santiago, Chile (3.16%)                 |
+| **North America**   | **🔑 Mexico City, Mexico (6.73%)**, Ecatepec de Morelos (2.29%), Zapopan (1.72%)      |
+| **SE Asia**         | Bangkok, Thailand (6.08%), Jakarta, Indonesia (4.14%), Manila, Philippines (3.1%)     |
+| **Oceania**         | **🔑 Melbourne, Victoria, Australia (12.93%)**, Sydney, Australia (12.91%), Perth (6.79%) |
+| **Southern Europe** | Madrid, Spain (2.95%), Rome, Italy (2.66%), Belgrade, Serbia (1.78%)                  |
+| **Western Europe**  | Paris, France (3.59%), Berlin, Germany (2.18%), Hamburg, Germany (1.39%)              |
+| **Southern Asia**   | **🔑 Delhi, India (6.47%)**, Mumbai, Maharashtra (3.65%), Kolkata (3.58%)             |
+| **Africa**          | **🔑 Cairo, Egypt (25.13%)**, Alexandria, Egypt (9.31%), Port Said, Egypt (4.26%)     |
+| **Western Asia**    | **🔑 Istanbul, Turkey (16.49%)**, Dubai, United Arab Emirates (15.46%), Abu Dhabi (5.28%) |
+
+---
+
+### **Top Countries by Region**
+
+| Region              | Top Countries (Percentage)                                                                 |
+|---------------------|-------------------------------------------------------------------------------------------|
+| **Central Asia**    | Kazakhstan (50.04%), Uzbekistan (49.96%)                                                 |
+| **Eastern Asia**    | **🔑 South Korea (59.99%)**, Japan (39.35%), China (0.66%)                                |
+| **Eastern Europe**  | Ukraine (27.93%), Romania (24.22%), Hungary (17.86%)                                     |
+| **Northern Europe** | **🔑 United Kingdom (88.7%)**, Ireland (4.03%), Lithuania (3.14%)                        |
+| **South America**   | Brazil (33.23%), Colombia (23.35%), Argentina (15.96%)                                   |
+| **North America**   | **🔑 Mexico (54.15%)**, United States (40.3%), Canada (5.54%)                            |
+| **SE Asia**         | Philippines (41.12%), Indonesia (39.62%), Thailand (18.36%)                              |
+| **Oceania**         | **🔑 Australia (80.63%)**, New Zealand (19.37%)                                          |
+| **Southern Europe** | Italy (38.18%), Spain (33.75%), Portugal (8.79%)                                         |
+| **Western Europe**  | France (65.22%), Germany (31.26%), Austria (3.53%)                                       |
+| **Southern Asia**   | **🔑 India (100%)**                                                                      |
+| **Africa**          | **🔑 Egypt (81.45%)**, South Africa (18.55%)                                             |
+| **Western Asia**    | **🔑 Turkey (63.69%)**, United Arab Emirates (29.92%), Israel (6.39%)                    |
+
+---
+
+### **Key Insights (Geographic):**
+1. **Key Cities**:  
+   - **Cairo, Egypt (25.13%)** – Highest urban engagement globally.  
+   - **Seoul, Korea (24.78%)** – Leading city in Eastern Asia.  
+   - **Istanbul, Turkey (16.49%)** – Top city in Western Asia.  
+2. **Key Countries**:  
+   - **India (100%)** – Total dominance in Southern Asia.  
+   - **Egypt (81.45%)** – Highest country engagement in Africa.  
+   - **Australia (80.63%)** – Leading country in Oceania.  
+
+---
+
+# **Recommendations for Targeting**
+
+## **4.1 High-Priority Focus (Highest Interest)**  
+- **Regions**:  
+  - **Southern Asia, Western Asia, Africa** – These regions show the **highest engagement** for **Men 25-34**.  
+  - **Southern Europe, Northern Europe, Oceania** – These regions show the **highest engagement** for **Women 55+**.  
+- **Demographics**:  
+  - **Men 25-34**: Target in **Southern Asia (34.8%)**, **Western Asia (23.8%)**, and **Africa (18.7%)**.  
+  - **Women 55+**: Target in **Southern Europe (11.2%)**, **Northern Europe (10.0%)**, and **Oceania (9.7%)**.  
+- **Cities**:  
+  - **Cairo, Egypt (25.13%)** – Highest urban engagement globally.  
+  - **Seoul, Korea (24.78%)** – Leading city in Eastern Asia.  
+  - **Istanbul, Turkey (16.49%)** – Top city in Western Asia.  
+  - **Melbourne, Australia (12.93%)** – Leading city in Oceania.  
+- **Countries**:  
+  - **India (100%)** – Total dominance in Southern Asia.  
+  - **Egypt (81.45%)** – Highest country engagement in Africa.  
+  - **Australia (80.63%)** – Leading country in Oceania.  
+
+---
+
+## **4.2 Moderate-Priority Focus (Balanced Interest)**  
+- **Regions**:  
+  - **Eastern Asia, North America, South America** – These regions show **moderate engagement** across multiple age groups.  
+- **Demographics**:  
+  - **Men 25-34**: Target in **Eastern Asia (18.5%)**, **North America (11.6%)**, and **South America (13.7%)**.  
+  - **Women 35-44**: Target in **Eastern Europe (13.3%)** and **South America (12.9%)**.  
+- **Cities**:  
+  - **Mexico City, Mexico (6.73%)** – Leading city in North America.  
+  - **Bogotá, Colombia (5.57%)** – Leading city in South America.  
+  - **Bangkok, Thailand (6.08%)** – Leading city in South-eastern Asia.  
+- **Countries**:  
+  - **South Korea (59.99%)** – Leading country in Eastern Asia.  
+  - **Mexico (54.15%)** – Leading country in North America.  
+  - **Brazil (33.23%)** – Leading country in South America.  
+
+---
+
+## **4.3 Low-Priority Focus (Lower Interest)**  
+- **Regions**:  
+  - **Central Asia, Eastern Europe, Western Europe** – These regions show **lower engagement** but still have potential in specific demographics.  
+- **Demographics**:  
+  - **Men 35-44**: Target in **Central Asia (18.4%)** and **Eastern Europe (13.8%)**.  
+  - **Women 45-54**: Target in **Western Europe (9.6%)** and **Eastern Europe (10.8%)**.  
+- **Cities**:  
+  - **Tashkent, Uzbekistan (21.66%)** – Leading city in Central Asia.  
+  - **Odessa, Ukraine (4.18%)** – Leading city in Eastern Europe.  
+  - **Paris, France (3.59%)** – Leading city in Western Europe.  
+- **Countries**:  
+  - **Kazakhstan (50.04%)** – Leading country in Central Asia.  
+  - **Ukraine (27.93%)** – Leading country in Eastern Europe.  
+  - **France (65.22%)** – Leading country in Western Europe.  
 
 ---
 
 
-### Key Observations:
-1. **Highest Male Interest**:  
-   - **Southern Asia (Men 25-34)** has the highest male audience percentage at **34.8%**.  
-   - **Western Asia (Men 25-34)** follows closely with **23.8%**.  
+# 5. Trend Analysis
 
-2. **Highest Female Interest**:  
-   - **Southern Europe (Women 55-64)** has the highest female audience percentage at **11.2%**.  
-   - **Northern Europe (Women 55-64 and 65+)** shows strong engagement at **10.0%** and **9.7%**, respectively.  
+## **Google Search Trends for Action, Adventure, and Science Fiction**
 
-3. **Gender Disparity**:  
-   - Male audiences dominate in younger age groups (18-44) across most regions, especially in **Southern Asia** and **Western Asia**.  
-   - Female audiences are more prominent in older age groups (45+) in **Southern Europe**, **Northern Europe**, and **Oceania**.  
+![Google Search Trends](/Images/imdb/google_search_trend.png) 
+### **5.1 Trend Year for Action, Adventure, and Science Fiction**
+- **Action**: **2017**  
+- **Adventure**: **2018**  
+- **Sci-Fi**: **2015**  
+  
 
-4. **Regional Trends**:  
-   - **Western Europe** and **Northern Europe** have balanced gender distributions in older age brackets (55+).  
-   - **Africa** and **Southern Asia** show significantly lower female engagement overall.  
+---
 
-Use this data to tailor marketing strategies by targeting high-engagement demographics (e.g., Men aged 25-34 in Southern/Western Asia) and addressing gaps in underrepresented groups (e.g., Women in Africa/Southern Asia).  
+## **IMDB Runtime Length Trends**
+
+![IMDB Runtime Trends](/Images/imdb/imdb_runtime_trend.png)
+### **5.2 Runtime Length Trend**
+- **Epic (141+ minutes)** and **Extended (101-140 minutes)** runtime lengths have consistently **surpassed other runtime categories** in popularity over the years.  
+- Movies with **101+ minutes** are showing the most popularity and dominating the trend.
+---
+
+
+ # 6. Insights
+
+## **Key Questions Answered Through the Dashboard**
+
+---
+
+### **1. What Titles (Movies) Have Been Produced in the Past That Were Related to That Trend?**
+
+The **IMDb historical analysis** and **Google search trends** indicate that **Action, Adventure, and Sci-Fi** are trending genres, with **Epic (141+ minutes)** and **Extended (101-140 minutes)** runtime lengths gaining higher popularity. Below is the list of titles featuring trending genres in their peak years:
+
+#### **Action (Peak Year: 2017)**
+
+![Action titles](/Images/imdb/action_titles.png)
+
+#### **Adventure (Peak Year: 2018)**
+
+![Adventure titles](/Images/imdb/adventure_titles.png)
+
+#### **Sci-Fi (Peak Year: 2015)**
+
+![sci-fi titles](/Images/imdb/sci-fi_titles.png)
+
+---
+
+### **2. Why Were Some Productions Successful While Others Weren’t?**
+
+1. **Top Genres Drive Popularity**:  
+   - **Action, Adventure, and Sci-Fi** have the highest average votes and long-term popularity.  
+   - Combining these genres attracts a broad audience and maximizes engagement.  
+
+2. **Longer Movies Gain Higher Popularity**:  
+   - **Epic (141+ minutes)** and **Extended (101-140 minutes)** runtime lengths are more popular than shorter films.  
+   - Audiences prefer immersive storytelling, making longer movies a better investment.  
+
+3. **Popular Cast Members Boost Success**:  
+   - Movies featuring well-known directors receive significantly higher engagement.  
+   - Casting popular directors can drive higher viewership and success.  
+
+4. **Non-Adult Movies Dominate Popularity**:  
+   - **99.9% of movies are non-adult**, contributing to **98.7% of total audience engagement**.  
+   - Mainstream, family-friendly content reaches the widest audience and performs best.  
+
+| Is Adult | Avg Popularity | Title Count |
+|----------|----------------|-------------|
+| False    | 2,953          | 99,885      |
+| True     | 37             | 86          |
+
+---
+
+### **3. Where (in Terms of Regions or Countries) Would a New Title Associated with That Topic Draw the Most Interest from Consumers?**
+
+For regional and demographic insights, refer to the **4. Potential Audience by Demographics and Region** in the analysis:  
