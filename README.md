@@ -156,8 +156,7 @@ Materialized views were created to simplify correlation analysis in Tableau, for
 
 
 # 3. IMDb Historical Analysis   
-**Tableau Public Dashboard:** Navigate to IMDB historical analysis section of [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-)
-
+Explore the [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-) for detailed visualization of IMDB historical analysis. Navigate to the Historical analysis section to visualize regional and demographic insights.
 ---
 
 ## **3.1 Data Exploration & Key Findings**  
@@ -165,7 +164,7 @@ Materialized views were created to simplify correlation analysis in Tableau, for
 - **Visual**: Bar chart (Genre vs. Volume) with color encoding for average popularity (votes)
     ![Genre Popularity](/Images/imdb/genre_popularity.png)
 - **Key Insights**:  
-  - **Drama** (24.9K titles) and **Comedy** dominate in volume but have moderate popularity.  
+  - **Drama**  and **Comedy** dominate in volume but have moderate popularity.  
   - **Action**, **Adventure**, and **Sci-Fi** genres have **significantly higher average votes** despite fewer titles.
   - **Focus Genres**: Action, Adventure, Sci-Fi (critical for success correlation analysis).
 - Further analysis focuses on identifying the success factors contributing to the high popularity of the Action, Adventure, and Science Fiction genres with average rating at least 6.
@@ -176,7 +175,7 @@ Materialized views were created to simplify correlation analysis in Tableau, for
    ![Runtime Popularity](/Images/imdb/runtime_analysis.png)
 - **Calculated Field**: Runtime categorized into:
   - **Epic (141+ mins)**: Highest popularity (Adventure: 62.6K votes).  
-  - **Extended (101-140 mins)**: 34% of total volume, high popularity (e.g., Sci-Fi: 63.8K votes).  
+  - **Extended (101-140 mins)**: 34% of total volume, high popularity (Sci-Fi: 63.8K votes).  
   - **Standard (61-100 mins)**: Highest volume (40%) but lower popularity.  
   - **Short (0-60 mins)**: Minimal volume and popularity (0.1K votes).
 - **Epic (141+ min) and extended (101–140 min) movies are more popular than shorter films**.
@@ -243,12 +242,6 @@ To explore the popularity of all countries and languages, refer to [Dashboard](h
    
 
 ---
-
-### **Analysis Focus**
-- This analysis is specifically focused on **Action, Adventure, and Sci-Fi** genres with an **average rating of at least 6**, ensuring that only **successful titles** are considered.  
-- The insights provided are based on **IMDb historical data** and **Google search trends**, highlighting the key elements that contribute to the success of these genres.  
-
-
 
 
 # 4. Potential Audience by Demographics and Region
