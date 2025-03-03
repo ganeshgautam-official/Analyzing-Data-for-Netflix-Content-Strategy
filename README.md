@@ -156,7 +156,7 @@ Materialized views were created to simplify correlation analysis in Tableau, for
 
 
 # 3. IMDb Historical Analysis   
-**Tableau Public Dashboard:** [IMDb Historical Analysis](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-) 
+**Tableau Public Dashboard:** Navigate to IMDB historical analysis section of [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-)
 
 ---
 
@@ -188,7 +188,7 @@ Materialized views were created to simplify correlation analysis in Tableau, for
 - **Top 10 Popular Directors**:
   
   ![Director Popularity](/Images/imdb/top_director.png)  
-- To explore other cast members, refer to [IMDb Historical Analysis](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-)
+- To explore other cast members, refer to [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-) & navigate to the IMDB Historical analysis section.
 ---
 
 ### **Regional Popularity & Target Markets**  
@@ -219,7 +219,7 @@ Materialized views were created to simplify correlation analysis in Tableau, for
 | **North America**    | USA, Canada, Mexico                     | English (279.2M)                    |
 | **Western Europe**   | Germany, France, Netherland             | French (29M), English(22.7)         |
 
-To explore the popularity of all countries and languages, refer to [IMDb Historical Analysis](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-)
+To explore the popularity of all countries and languages, refer to [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-) & navigate to the IMDB Historical analysis section.
 
 ---
 
@@ -232,12 +232,10 @@ To explore the popularity of all countries and languages, refer to [IMDb Histori
    - **Japanese**: Key for Eastern Asia.  
    - **Spanish**: Vital for South America.  
 
-**Explore the dashboard here**: [IMDb Historical Analysis](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-).  
-
 
 
 # 4. Potential Audience by Demographics and Region
-Explore the [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-) for detailed visualization of potential consumer audiences. Navigate to the Audience section to analyze regional and demographic insights.
+Explore the [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-) for detailed visualization of potential consumer audiences. Navigate to the Audience section to visualize regional and demographic insights.
 
 ## **Demographic Analysis (Age & Gender)**
 
@@ -407,7 +405,7 @@ Explore the [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/
 
  # 6. Insights
 
-## **Key Questions Answered Through the Dashboard**
+## **Answer to the key questions**
 
 ---
 
