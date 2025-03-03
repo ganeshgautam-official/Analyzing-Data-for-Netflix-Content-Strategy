@@ -123,7 +123,6 @@ Views are created in the `cleaned_imdb_data` dataset to clean and transform raw 
 
 ##### **C. Data Validation**  
 - **Deduplication**:  
-  ```sql
   -- Checked for duplicate records in each table.
 
 #### **1.3.3 Data Transformation Step**  
@@ -155,8 +154,10 @@ Materialized views were created to simplify correlation analysis in Tableau, for
 
 
 
-# 3. IMDb Historical Analysis   
+# 3. IMDb Historical Analysis
+
 Explore the [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-) for detailed visualization of IMDB historical analysis. Navigate to the Historical analysis section to visualize regional and demographic insights.
+
 ---
 
 ## **3.1 Data Exploration & Key Findings**  
