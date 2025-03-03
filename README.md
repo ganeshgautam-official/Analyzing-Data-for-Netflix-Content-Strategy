@@ -1,4 +1,4 @@
-# Project Overview  
+## Project Overview  
 
 This project analyzes publicly available data to help Netflix identify emerging trends and strategize its future movie content. The focus is on movies released between **2015 and 2024**, leveraging insights from:  
 
@@ -11,14 +11,14 @@ The goal is to provide actionable insights for Netflix to create data-driven con
 
 
 
-# **Business Case**  
-## **Summary**  
+## **Business Case**  
+### **Summary**  
 
 This fictional case about the world’s largest subscription streaming service, **Netflix**, teaches how to use publicly available data and tools to explore data for interesting patterns that help answer important, key questions related to **movie content**.  
 
 After years of providing key insights to Netflix, **Zach Joel** and his team of data analysts have the opportunity to give the streaming service new **movie** recommendations. The evening before Zach and his team begin digging into this challenge, he hopes to get a head start on the analysis by mining publicly available data. What insights could Zach and his team explore?  
 
-## **Key Characters**  
+### **Key Characters**  
 
 - **Netflix**: Subscription-based streaming service that allows members to watch **movies** commercial-free on an internet-connected device.  
 - **Zach Joel**: Manager and lead analyst for a data analytics team that consults with Netflix on various business operations and marketing challenges the global streaming service faces.  
@@ -27,7 +27,7 @@ After years of providing key insights to Netflix, **Zach Joel** and his team of 
 - **IMDb Datasets**: Subsets of IMDb data available for access to customers for personal and non-commercial use with information on millions of **movies**.  
 - **Facebook Audience Insights**: Tool designed to help marketers learn more about their target audiences, including information about geography, demographics, purchase behavior, and more through anonymous and aggregated Facebook data.  
 
-## **What’s the Next Big Thing for Netflix?**  
+### **What’s the Next Big Thing for Netflix?**  
 
 The solution was clear for Zach Joel, even if the answer wasn’t.  
 
@@ -48,7 +48,7 @@ Zach knew that gaining an understanding of global trends in consumer interest wa
 
 As he sat at home that evening, Zach hoped to get a head start on the analysis by taking a spin through publicly available data sources. Zach had already planned his next several moves before his laptop whirled to life.  
 
-## **Your Assignment**  
+### **Your Assignment**  
 
 Put yourself in Zach’s shoes. You’re hoping to glean high-level insights into the key questions you’ve agreed to explore for Netflix’s head of content marketing. Consider online self-service tools from Netflix’s digital platform partners – such as Google and Facebook – and open-source datasets from IMDb.  
 
