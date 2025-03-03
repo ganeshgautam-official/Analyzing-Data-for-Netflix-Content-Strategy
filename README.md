@@ -60,9 +60,7 @@ Your objective is to find interesting patterns that offer insights into your key
 **Source**: Adapted from the [Netflix Case Study](https://artscience.ai/netflix-case-study/), with a focus on **movies** instead of general titles.  
 
 
-# IMDb Historical Movie Analysis, Demographical & Geographical Potential Audience, & Google Seacrh Trends
-
-## **1. ELT Process Overview**  
+## **1. IMDb Movie Analysis: ELT Process Overview & Data Modeling**  
 
 ### **1.1 Extraction (E)**  
 - **Source Data**:  
