@@ -168,7 +168,7 @@ Materialized views were created to simplify correlation analysis in Tableau, for
   - **Drama** (24.9K titles) and **Comedy** dominate in volume but have moderate popularity.  
   - **Action**, **Adventure**, and **Sci-Fi** genres have **significantly higher average votes** despite fewer titles.
   - **Focus Genres**: Action, Adventure, Sci-Fi (critical for success correlation analysis).
-- Further analysis focuses on identifying the success factors contributing to the high popularity of the Action, Adventure, and Science Fiction genres.
+- Further analysis focuses on identifying the success factors contributing to the high popularity of the Action, Adventure, and Science Fiction genres with average rating at least 6.
     
 ---
 
@@ -191,7 +191,7 @@ Materialized views were created to simplify correlation analysis in Tableau, for
 - To explore other cast members, refer to [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-) & navigate to the IMDB Historical analysis section.
 ---
 
-### **Regional Popularity & Target Markets**  
+### **Regional Popularity **  
 - **Visual**: Heatmaps (green = high popularity, red = low) & bar charts for countries/languages.  
 - **Global Trends**:  
   - **Top Countries**: USA (290M votes), UK (289.2M), Canada (281.1M).  
@@ -223,14 +223,31 @@ To explore the popularity of all countries and languages, refer to [Dashboard](h
 
 ---
 
-## **3.3 Success Metrics & Recommendations**  
-### **Common Success Factors**  
-- **Genre Focus**: Prioritize **Action, Adventure, Sci-Fi** with **Extended/Epic runtimes**.  
-- **Director Partnerships**: Leverage top directors (Russo Brothers, Villeneuve).  
-- **Regional Localization**:  
-   - **English**: Critical in North America, Oceania, and Africa.  
-   - **Japanese**: Key for Eastern Asia.  
-   - **Spanish**: Vital for South America.  
+### **Key Success Factors**
+1. **Genre Dominance**:  
+   - **Action, Adventure, and Sci-Fi** are the **most popular genres** in terms of **average popularity**.  
+   - These genres consistently attract a broad audience and drive higher engagement.  
+
+2. **Runtime Length**:  
+   - **Epic (141+ minutes)** and **Extended (101-140 minutes)** runtime lengths are the **most popular**.  
+   - Audiences prefer **longer, immersive storytelling**, making these runtime lengths a key factor for success.  
+
+3. **Regional and Language Insights**:  
+   - **English**: Dominates in **North America, Oceania, and Africa**.  
+   - **Japanese**: Key for **Eastern Asia**.  
+   - **Spanish**: Vital for **South America**.  
+   - Localizing content in these languages can significantly boost regional engagement.  
+
+4. **Cast**:  
+   - **Popular Directors**: Films directed by well-known directors (e.g., Russo Brothers, Denis Villeneuve) tend to perform better.  
+   
+
+---
+
+### **Analysis Focus**
+- This analysis is specifically focused on **Action, Adventure, and Sci-Fi** genres with an **average rating of at least 6**, ensuring that only **successful titles** are considered.  
+- The insights provided are based on **IMDb historical data** and **Google search trends**, highlighting the key elements that contribute to the success of these genres.  
+
 
 
 
@@ -260,11 +277,11 @@ Explore the [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/
 ---
 
 ### **Key Insights (Demographics):**
-1. **Key Age Group**: **Men 25-34** dominate in:  
+- **Key Age Group**: **Men 25-34** dominate in:  
    - **Southern Asia (34.8%)** – Highest engagement globally.  
    - **Western Asia (23.8%)** – Strong interest in Turkey/UAE.  
    - **Africa (18.7%)** – Significant interest in younger males.  
-2. **Key Gender**: **Women 55+** show peak engagement in:  
+- **Key Gender**: **Women 55+** show peak engagement in:  
    - **Southern Europe (11.2%)** – Highest female engagement.  
    - **Northern Europe (10.0%)** – Strong interest in older women.  
    - **Oceania (9.7%)** – Notable interest among older females.  
@@ -314,11 +331,11 @@ Explore the [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/
 ---
 
 ### **Key Insights (Geographic):**
-1. **Key Cities**:  
+- **Key Cities**:  
    - **Cairo, Egypt (25.13%)** – Highest urban engagement globally.  
    - **Seoul, Korea (24.78%)** – Leading city in Eastern Asia.  
    - **Istanbul, Turkey (16.49%)** – Top city in Western Asia.  
-2. **Key Countries**:  
+- **Key Countries**:  
    - **India (100%)** – Total dominance in Southern Asia.  
    - **Egypt (81.45%)** – Highest country engagement in Africa.  
    - **Australia (80.63%)** – Leading country in Oceania.  
@@ -379,6 +396,8 @@ Explore the [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/
   - **France (65.22%)** – Leading country in Western Europe.  
 
 ---
+
+
 
 
 # 5. Trend Analysis
