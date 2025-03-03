@@ -154,14 +154,14 @@ Materialized views were created to simplify correlation analysis in Tableau, for
 
 
 
-# 3. IMDb Historical Analysis
+## 3. IMDb Historical Analysis
 
 Explore the [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-) for detailed visualization of IMDB historical analysis. Navigate to the Historical analysis section to visualize regional and demographic insights.
 
 ---
 
-## **3.1 Data Exploration & Key Findings**  
-### **Genre Popularity & Volume**  
+### **3.1 Data Exploration & Key Findings**  
+#### **Genre Popularity & Volume**  
 - **Visual**: Bar chart (Genre vs. Volume) with color encoding for average popularity (votes)
     ![Genre Popularity](/Images/imdb/genre_popularity.png)
 - **Key Insights**:  
@@ -172,7 +172,7 @@ Explore the [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/
     
 ---
 
-### **Runtime Impact on Popularity**  
+#### **Runtime Impact on Popularity**  
    ![Runtime Popularity](/Images/imdb/runtime_analysis.png)
 - **Calculated Field**: Runtime categorized into:
   - **Epic (141+ mins)**: Highest popularity (Adventure: 62.6K votes).  
@@ -183,15 +183,15 @@ Explore the [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/
 
 ---
 
-## **3.2 Correlation Analysis**  
-### **Director Influence**  
+### **3.2 Correlation Analysis**  
+#### **Director Influence**  
 - **Top 10 Popular Directors**:
   
   ![Director Popularity](/Images/imdb/top_director.png)  
 - To explore other cast members, refer to [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-) & navigate to the IMDB Historical analysis section.
 ---
 
-### **Regional Popularity **  
+#### **Regional Popularity **  
 - **Visual**: Heatmaps (green = high popularity, red = low) & bar charts for countries/languages.  
 - **Global Trends**:  
   - **Top Countries**: USA (290M votes), UK (289.2M), Canada (281.1M).  
@@ -245,12 +245,12 @@ To explore the popularity of all countries and languages, refer to [Dashboard](h
 ---
 
 
-# 4. Potential Audience by Demographics and Region
+## 4. Potential Audience by Demographics and Region
 Explore the [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-) for detailed visualization of potential consumer audiences. Navigate to the Audience section to visualize regional and demographic insights.
 
-## **Demographic Analysis (Age & Gender)**
+### **Demographic Analysis (Age & Gender)**
 
-### **Audience Distribution by Region and Age Group (Men vs. Women)**
+#### **Audience Distribution by Region and Age Group (Men vs. Women)**
 
 | Region              | 18-24 (M/W)       | 25-34 (M/W)       | 35-44 (M/W)       | 45-54 (M/W)       | 55-64 (M/W)       | 65+ (M/W)         |
 |---------------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
@@ -270,7 +270,7 @@ Explore the [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/
 
 ---
 
-### **Key Insights (Demographics):**
+#### **Key Insights (Demographics):**
 - **Key Age Group**: **Men 25-34** dominate in:  
    - **Southern Asia (34.8%)** – Highest engagement globally.  
    - **Western Asia (23.8%)** – Strong interest in Turkey/UAE.  
@@ -282,9 +282,9 @@ Explore the [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/
 
 ---
 
-## **Geographic Analysis (Cities & Countries)**
+### **Geographic Analysis (Cities & Countries)**
 
-### **Top Cities by Region**
+#### **Top Cities by Region**
 
 | Region              | Top Cities (Percentage)                                                                 |
 |---------------------|----------------------------------------------------------------------------------------|
@@ -304,7 +304,7 @@ Explore the [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/
 
 ---
 
-### **Top Countries by Region**
+#### **Top Countries by Region**
 
 | Region              | Top Countries (Percentage)                                                                 |
 |---------------------|-------------------------------------------------------------------------------------------|
@@ -336,9 +336,9 @@ Explore the [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/
 
 ---
 
-# **Recommendations for Targeting**
+### **Recommendations for Targeting**
 
-## **4.1 High-Priority Focus (Highest Interest)**  
+#### **4.1 High-Priority Focus (Highest Interest)**  
 - **Regions**:  
   - **Southern Asia, Western Asia, Africa** – These regions show the **highest engagement** for **Men 25-34**.  
   - **Southern Europe, Northern Europe, Oceania** – These regions show the **highest engagement** for **Women 55+**.  
@@ -357,7 +357,7 @@ Explore the [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/
 
 ---
 
-## **4.2 Moderate-Priority Focus (Balanced Interest)**  
+#### **4.2 Moderate-Priority Focus (Balanced Interest)**  
 - **Regions**:  
   - **Eastern Asia, North America, South America** – These regions show **moderate engagement** across multiple age groups.  
 - **Demographics**:  
@@ -374,7 +374,7 @@ Explore the [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/
 
 ---
 
-## **4.3 Low-Priority Focus (Lower Interest)**  
+#### **4.3 Low-Priority Focus (Lower Interest)**  
 - **Regions**:  
   - **Central Asia, Eastern Europe, Western Europe** – These regions show **lower engagement** but still have potential in specific demographics.  
 - **Demographics**:  
@@ -394,12 +394,12 @@ Explore the [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/
 
 
 
-# 5. Trend Analysis
+## 5. Trend Analysis
 
-## **Google Search Trends for Action, Adventure, and Science Fiction**
+### **Google Search Trends for Action, Adventure, and Science Fiction**
 
 ![Google Search Trends](/Images/imdb/google_search_trend.png) 
-### **5.1 Trend Year for Action, Adventure, and Science Fiction**
+#### **5.1 Trend Year for Action, Adventure, and Science Fiction**
 - **Action**: **2017**  
 - **Adventure**: **2018**  
 - **Sci-Fi**: **2015**  
@@ -407,22 +407,22 @@ Explore the [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/
 
 ---
 
-## **IMDB Runtime Length Trends**
+### **IMDB Runtime Length Trends**
 
 ![IMDB Runtime Trends](/Images/imdb/imdb_runtime_trend.png)
-### **5.2 Runtime Length Trend**
+#### **5.2 Runtime Length Trend**
 - **Epic (141+ minutes)** and **Extended (101-140 minutes)** runtime lengths have consistently **surpassed other runtime categories** in popularity over the years.  
 - Movies with **101+ minutes** are showing the most popularity and dominating the trend.
 ---
 
 
- # 6. Insights
+ ## 6. Insights
 
-## **Answer to the key questions**
+### **Answer to the key questions**
 
 ---
 
-### **1. What Titles (Movies) Have Been Produced in the Past That Were Related to That Trend?**
+#### **1. What Titles (Movies) Have Been Produced in the Past That Were Related to That Trend?**
 
 The **IMDb historical analysis** and **Google search trends** indicate that **Action, Adventure, and Sci-Fi** are trending genres, with **Epic (141+ minutes)** and **Extended (101-140 minutes)** runtime lengths gaining higher popularity. Below is the list of titles featuring trending genres in their peak years:
 
@@ -440,7 +440,7 @@ The **IMDb historical analysis** and **Google search trends** indicate that **Ac
 
 ---
 
-### **2. Why Were Some Productions Successful While Others Weren’t?**
+#### **2. Why Were Some Productions Successful While Others Weren’t?**
 
 1. **Top Genres Drive Popularity**:  
    - **Action, Adventure, and Sci-Fi** have the highest average votes and long-term popularity.  
@@ -465,6 +465,6 @@ The **IMDb historical analysis** and **Google search trends** indicate that **Ac
 
 ---
 
-### **3. Where (in Terms of Regions or Countries) Would a New Title Associated with That Topic Draw the Most Interest from Consumers?**
+#### **3. Where (in Terms of Regions or Countries) Would a New Title Associated with That Topic Draw the Most Interest from Consumers?**
 
 For regional and demographic insights, refer to the **4. Potential Audience by Demographics and Region** in the analysis:  
