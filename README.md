@@ -420,7 +420,7 @@ Explore the [Dashboard](https://public.tableau.com/app/profile/er.ganesh.gautam/
 
 ---
 
-#### **1. What Titles (Movies) Have Been Produced in the Past That Were Related to That Trend?**
+#### **1. What Movies Had Been Produced in the Past That Were Related to That Trend?**
 
 The **IMDb historical analysis** and **Google search trends** indicate that **Action, Adventure, and Sci-Fi** are trending genres, with **Epic (141+ minutes)** and **Extended (101-140 minutes)** runtime lengths gaining higher popularity. Below is the list of titles featuring trending genres in their peak years:
 
@@ -438,7 +438,7 @@ The **IMDb historical analysis** and **Google search trends** indicate that **Ac
 
 ---
 
-#### **2. Why Were Some Productions Successful While Others Weren’t?**
+#### **2. Why Were Some Movies Successful While Others Weren’t?**
 
 1. **Top Genres Drive Popularity**:  
    - **Action, Adventure, and Sci-Fi** have the highest average votes and long-term popularity.  
