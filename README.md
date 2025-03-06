@@ -140,7 +140,7 @@ Transformation involves **normalizing data**, enriching it with external tables,
 
 ### **2.2 Relationships**  
 For detailed query refer to [data_modeling](/Query/data_modeling.sql) 
-- **Star Schema**:  
+- **Snowflake Schema**:  
   ![Star Schema Diagram](/Images/imdb_modeling.png)  
   - **Fact Table**: `title_ratings` (success metrics).  
   - **Dimensions**: Linked via foreign keys to analyze correlations.  
