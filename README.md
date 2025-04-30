@@ -9,7 +9,7 @@ This project analyzes publicly available data to help Netflix identify emerging 
 The goal is to provide actionable insights for Netflix to create data-driven content that resonates with its audience.  
 
 ## 🔄 Data Flow Summary
-
+![Workflow Diagram](/Images/netflix_workflow.png)
 - **IMDb Dataset (8.05 GB, TSV, 5 files)**  
   - Extracted from IMDb and loaded into **Google Cloud Storage**.
   - Ingested into **BigQuery** for processing.
@@ -31,7 +31,6 @@ The goal is to provide actionable insights for Netflix to create data-driven con
 - **Tableau Desktop**  
   - All datasets (IMDb, Facebook, Google Trends) were **blended** to create a unified analysis.
   - Final dashboards were published to **Tableau Public**.
-![Workflow Diagram](/Images/netflix_workflow.png)
 
 
 
