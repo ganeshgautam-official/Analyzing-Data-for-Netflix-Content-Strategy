@@ -30,7 +30,7 @@ The goal is to provide actionable insights for Netflix to create data-driven con
 
 - **Tableau Desktop**  
   - All datasets (IMDb, Facebook, Google Trends) were **blended** to create a unified analysis.
-  - Final dashboards were published to **Tableau Public**.
+  - Final dashboards were published to **[Tableau Public](https://public.tableau.com/app/profile/er.ganesh.gautam/viz/NetflixandAnalyzingDataforInsightsCaseStudy/AUDIENCE-)**.
 
 
 
