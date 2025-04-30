@@ -8,6 +8,30 @@ This project analyzes publicly available data to help Netflix identify emerging 
 
 The goal is to provide actionable insights for Netflix to create data-driven content that resonates with its audience.  
 
+## 🔄 Data Flow Summary
+
+- **IMDb Dataset (8.05 GB, TSV, 5 files)**  
+  - Extracted from IMDb and loaded into **Google Cloud Storage**.
+  - Ingested into **BigQuery** for processing.
+  - Staged through the following layers:
+    - **Raw Dataset**: Loaded directly from Cloud Storage.
+    - **Staging Dataset**: Cleaned and transformed (null handling, casting, enrichment, filtering).
+    - **Cleaned Dataset**: Final structured data.
+    - **Snowflake Schema**: Modeled into fact and dimension tables.
+
+- **Modeled Data (615.4 MB, CSV, 8 files)**  
+  - Exported from BigQuery to **Google Drive** for visualization.
+
+- **Facebook Audience Insights (CSV)**  
+  - Extracted to analyze demographic and geographic information.
+
+- **Google Trends (CSV)**  
+  - Extracted to identify global and regional interest in movie genres and runtime length.
+
+- **Tableau Desktop**  
+  - All datasets (IMDb, Facebook, Google Trends) were **blended** to create a unified analysis.
+  - Final dashboards were published to **Tableau Public**.
+![Workflow Diagram](/Images/netflix_workflow.png)
 
 
 
